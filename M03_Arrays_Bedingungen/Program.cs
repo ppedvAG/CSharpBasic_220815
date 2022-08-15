@@ -39,7 +39,34 @@ namespace Arrays_Bedingungen
 
             #endregion
 
+            int a = 20;
+            int b = 20;
 
+            if(a == 20)
+            {
+                Console.WriteLine("A ist 20");
+            }
+
+            if(a < b)
+            {
+                Console.WriteLine("A ist kleiner als B");
+            }
+            else if(a > b)
+            {
+                Console.WriteLine("A ist größer als B");
+            }
+            else
+                Console.WriteLine("A ist gleich B");
+
+            Console.WriteLine("ENDE");
+
+            string ergebnis = (a == b) ? "A ist gleich B" : "A ist ungleich B";
+
+            string name1 = "Hans";
+            string name2 = "Hans";
+
+            if(name1.Equals(name2))
+                Console.WriteLine("Namen sind gleich");
         }
     }
 }
