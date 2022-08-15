@@ -35,38 +35,51 @@ namespace Arrays_Bedingungen
             int[,] zweiDimArray = new int[3, 5];
             zweiDimArray[0, 0] = 12;
             zweiDimArray[0, 1] = 34;
-            Console.WriteLine(zweiDimArray[0,1]);
+            Console.WriteLine(zweiDimArray[0, 1]);
 
             #endregion
 
+            #region Bedingungen (If/Else)
+
+            //Deklaration und Initialisierung von Beispiel-Variablen
             int a = 20;
             int b = 20;
 
-            if(a == 20)
+            //BEDINGUNGEN (IF) prüfen logische Aussagen (z.B. Vergeliche oder Funktinen mit bool-Rückgabe) und führen den folgenden Block bei einem TRUE aus
+            if (a == 20)
             {
                 Console.WriteLine("A ist 20");
             }
 
-            if(a < b)
+
+            //IF-ELSEIF-ELSE-Block
+            ///Das Programm wird den ersten Block ausführen, bei welchem er auf eine wahre Bedingung trifft und dann am Ende des Blocks mit
+            ///dem Code weiter machen
+            if (a < b)
             {
                 Console.WriteLine("A ist kleiner als B");
             }
-            else if(a > b)
+            //Es kann beliebig viele ELSE-IF-Blöcke geben
+            else if (a > b)
             {
                 Console.WriteLine("A ist größer als B");
             }
+            //Wenn keine der Bedingungen wahr ist, wird der (optionale) ELSE-Block ausgeführt
             else
                 Console.WriteLine("A ist gleich B");
 
-            Console.WriteLine("ENDE");
-
+            //Kurznotation:
+            //(Bedingung) ? TrueAusgabe : FalseAusgabe
             string ergebnis = (a == b) ? "A ist gleich B" : "A ist ungleich B";
 
+            //Bsp eines String-Vergleichs
             string name1 = "Hans";
             string name2 = "Hans";
 
-            if(name1.Equals(name2))
+            if (name1.Equals(name2))
                 Console.WriteLine("Namen sind gleich");
+
+            #endregion
         }
     }
 }
