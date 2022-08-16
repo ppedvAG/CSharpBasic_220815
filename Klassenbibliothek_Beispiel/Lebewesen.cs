@@ -44,13 +44,15 @@
             this.Lieblingsnahrung = lieblingsnahrung;
             this.Geburtsdatum = geburtstag;
             this.Größe = größe;
+
+            AnzahlAllerLebewesen++;
         }
 
         //Es können mehrere Konstruktoren definiert werden, welche unterschiedliche Übergabeparameter haben (Überladung). Ein Konstruktor, der keine
         //Übergabeparameter hat, wird als Basiskonstruktor bezeichnet
         public Lebewesen()
         {
-
+            AnzahlAllerLebewesen++;
         }
         #endregion
 
@@ -68,5 +70,17 @@
         }
 
         #endregion
+
+        ~Lebewesen()
+        {
+            Console.WriteLine($"{this.Name} ist gestorben.");
+        }
+
+        public static int AnzahlAllerLebewesen { get; private set; } = 0;
+
+        public static void ZeigeAnzahlAllerLebewesen()
+        {
+            Console.WriteLine($"Es haben bist jetzt {AnzahlAllerLebewesen} Lebewesen existiert.");
+        }
     }
 }

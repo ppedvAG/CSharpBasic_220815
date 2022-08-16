@@ -2,7 +2,6 @@
 {
     public class Fahrzeug
     {
-
         #region Lab 06: Properties, Methoden, Konstruktor
 
         //Properties
