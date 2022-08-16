@@ -29,7 +29,7 @@
                 Rechenoperation op = (Rechenoperation)int.Parse(Console.ReadLine());
 
                 //Deklaration und Initialisierung der Ergebnisvariablen
-                double ergebnis = 0.0;
+                double ergebnis;
 
                 //Switch zur Auswahl der Rechenoperation
                 switch (op)
