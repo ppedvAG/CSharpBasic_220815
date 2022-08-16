@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L02_Geschwindigkeitsrechner", "L02_Geschwindigkeitsrechner\L02_Geschwindigkeitsrechner.csproj", "{CECE9283-2169-4FA8-B62E-BA7C3ADFA65A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L02_Geschwindigkeitsrechner", "L02_Geschwindigkeitsrechner\L02_Geschwindigkeitsrechner.csproj", "{CECE9283-2169-4FA8-B62E-BA7C3ADFA65A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "M02_Grundlagen", "M02_Grundlagen\M02_Grundlagen.csproj", "{BFF00BF3-89CC-48C6-B288-976A60FA07DF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "M03_Arrays_Bedingungen", "M03_Arrays_Bedingungen\M03_Arrays_Bedingungen.csproj", "{8362798B-526F-4DB1-9018-3788957A3B91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L03_Schaltjahrrechner_Minilotto", "L03_Schaltjahrrechner_Minilotto\L03_Schaltjahrrechner_Minilotto.csproj", "{973FAE48-7F9A-4FE6-9232-49441B38AC72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L03_Schaltjahrrechner_Minilotto", "L03_Schaltjahrrechner_Minilotto\L03_Schaltjahrrechner_Minilotto.csproj", "{973FAE48-7F9A-4FE6-9232-49441B38AC72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M04_Schleifen_Enums", "M04_Schleifen_Enums\M04_Schleifen_Enums.csproj", "{F99E1339-63D4-4AE9-A13B-8CCCAC636C9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "M04_Schleifen_Enums", "M04_Schleifen_Enums\M04_Schleifen_Enums.csproj", "{F99E1339-63D4-4AE9-A13B-8CCCAC636C9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L04_Taschenrechner", "L04_Taschenrechner\L04_Taschenrechner.csproj", "{2A7FB709-4EC3-4E50-8D0F-7817F82B09E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{F99E1339-63D4-4AE9-A13B-8CCCAC636C9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F99E1339-63D4-4AE9-A13B-8CCCAC636C9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F99E1339-63D4-4AE9-A13B-8CCCAC636C9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A7FB709-4EC3-4E50-8D0F-7817F82B09E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A7FB709-4EC3-4E50-8D0F-7817F82B09E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A7FB709-4EC3-4E50-8D0F-7817F82B09E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A7FB709-4EC3-4E50-8D0F-7817F82B09E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

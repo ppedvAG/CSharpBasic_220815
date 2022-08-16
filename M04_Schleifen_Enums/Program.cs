@@ -128,6 +128,18 @@
                 default:
                     break;
             }
+
+            //Bsp für einen Console.ReadKey()-Aufruf mit Überprüfung der gedrückten Taste (ConsoleKey-Enum)
+            ConsoleKeyInfo tastendruck = Console.ReadKey();
+            if(tastendruck.Key == ConsoleKey.Escape)
+            {
+                Console.WriteLine("Du hast ESC gedrückt");
+            }
+
+            //Verkürzter Vergleich (ohne Zwischenspeicherung)
+            if(Console.ReadKey().Key == ConsoleKey.W)
+                Console.WriteLine("Du hast W gedrückt");
+
             #endregion
 
         }
