@@ -1,7 +1,7 @@
 ﻿namespace Klassenbibliothek_Beispiel
 {
     //KLASSEN sind Vorlagen für Objekte. Sie bestimmen Eigenschaften und Funktionen dieser.
-    public class Lebewesen
+    public abstract class Lebewesen
     {
         #region Felder und Eigenschaften
         //FELDER (Membervariablen) sind die Variablen einzelner Objekte, welche die Zustände dieser Objekte definieren
@@ -68,7 +68,8 @@
         //Mutterklasse sondern ihre eigene Methode auf
         public virtual Lebewesen GebäreKind(string kindname)
         {
-            return new Lebewesen(kindname, "Muttermilch", DateTime.Now, 30);
+            //return new Lebewesen(kindname, "Muttermilch", DateTime.Now, 30);
+            return null;
         }
 
         #endregion
@@ -97,5 +98,7 @@
         {
             return $"{this.Name} ist {this.Alter} Jahre alt, {this.Größe} cm groß und mag gerne {this.Lieblingsnahrung}.";
         }
+
+        public abstract void GeräuscheProduzieren();
     }
 }

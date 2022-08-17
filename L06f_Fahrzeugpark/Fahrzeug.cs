@@ -11,6 +11,8 @@
         public double Preis { get; set; }
         public bool MotorLäuft { get; set; }
 
+        public int AnzahlRäder { get; set; }
+
         //Konstruktor mit Übergabeparametern und Standartwerten
         public Fahrzeug(string name, int maxG, double preis)
         {
@@ -19,6 +21,11 @@
             this.Preis = preis;
             this.AktGeschwindigkeit = 0;
             this.MotorLäuft = false;
+        }
+
+        public Fahrzeug()
+        {
+
         }
 
         //Methode zur Ausgabe von Objektinformationen | virtual erlaubt das Überschreiben durch erbende Klassen

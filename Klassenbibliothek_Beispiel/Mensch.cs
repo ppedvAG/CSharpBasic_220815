@@ -37,5 +37,9 @@ namespace Klassenbibliothek_Beispiel
             return ausgabe;
         }
 
+        public override void GeräuscheProduzieren()
+        {
+            Console.WriteLine("Bla Bla Bla");
+        }
     }
 }

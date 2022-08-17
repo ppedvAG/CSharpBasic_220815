@@ -126,17 +126,49 @@ namespace TesteBibliothek
 
             #region Lab 08: Schiff, PKW, Flugzeug
 
-            //Instanziierung verschiedener Fahrzeuge
-            PKW pkw1 = new PKW("Mercedes", 210, 23000, 5);
-            Schiff schiff1 = new Schiff("Titanic", 40, 25000000, Schiff.SchiffsTreibstoff.Dampf);
-            Flugzeug flugzeug1 = new Flugzeug("Boing", 350, 90000000, 9800);
+            ////Instanziierung verschiedener Fahrzeuge
+            //PKW pkw1 = new PKW("Mercedes", 210, 23000, 5);
+            //Schiff schiff1 = new Schiff("Titanic", 40, 25000000, Schiff.SchiffsTreibstoff.Dampf);
+            //Flugzeug flugzeug1 = new Flugzeug("Boing", 350, 90000000, 9800);
 
-            //Ausgabe der verschiedenen Info()-Methoden
-            Console.WriteLine(pkw1.Info());
-            Console.WriteLine(schiff1.Info());
-            Console.WriteLine(flugzeug1.Info());
-
+            ////Ausgabe der verschiedenen Info()-Methoden
+            //Console.WriteLine(pkw1.Info());
+            //Console.WriteLine(schiff1.Info());
+            //Console.WriteLine(flugzeug1.Info());
             #endregion
+
+            Lebewesen lebewesen;
+            Mensch mensch = new Mensch("Rainer", "Zufall", "Spagetti", new DateTime(2002, 3, 4), 189);
+
+            lebewesen = mensch;
+
+            if(lebewesen.GetType() == typeof(Mensch))
+                Console.WriteLine("Lebewesen ist ein Mensch");
+
+            if(lebewesen is Mensch)
+                Console.WriteLine("Lebewesen ist ein Mensch");
+
+            Console.WriteLine(lebewesen);
+
+            if(lebewesen is Mensch)
+            {
+                Mensch mensch2;
+                mensch2 = (Mensch)lebewesen;
+                Console.WriteLine(mensch2.Vorname);
+
+                mensch2 = lebewesen as Mensch;
+
+                Console.WriteLine((lebewesen as Mensch).Vorname);
+            }
+
+            BenenneUm(mensch, "Karl");
+
+            lebewesen.GeräuscheProduzieren();
+        }
+
+        public static void BenenneUm(Lebewesen lw, string neuerName)
+        {
+            lw.Name = neuerName;
         }
     }
 }
