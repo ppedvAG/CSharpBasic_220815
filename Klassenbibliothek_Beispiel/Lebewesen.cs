@@ -50,10 +50,10 @@
 
         //Es können mehrere Konstruktoren definiert werden, welche unterschiedliche Übergabeparameter haben (Überladung). Ein Konstruktor, der keine
         //Übergabeparameter hat, wird als Basiskonstruktor bezeichnet
-        //public Lebewesen()
-        //{
-        //    AnzahlAllerLebewesen++;
-        //}
+        public Lebewesen()
+        {
+            AnzahlAllerLebewesen++;
+        }
         #endregion
 
         #region Methoden
@@ -64,6 +64,8 @@
             this.Größe++;
         }
 
+        //Mittels VIRTUAL wird Kindklassen das Überschreiben (mittels OVERRIDE) erlaubt. D.h. Kindklassen rufen dann nicht die Methode der
+        //Mutterklasse sondern ihre eigene Methode auf
         public virtual Lebewesen GebäreKind(string kindname)
         {
             return new Lebewesen(kindname, "Muttermilch", DateTime.Now, 30);
@@ -71,11 +73,16 @@
 
         #endregion
 
+        #region Lab 07: Statische Member, Destruktor
+        //Der optionale DESTRUCTOR wird von der GaebageCollection bei Zerstörung (Speicherferigabe) des Objekts aufgerufen.
         ~Lebewesen()
         {
             Console.WriteLine($"{this.Name} ist gestorben.");
         }
 
+
+        //STATIC markiert statische Member. D.h. diese gelten für die Gesamtheit aller Objekte dieser Art und werden nicht für
+        //jedes Objekt einzeln erstellt.
         public static int AnzahlAllerLebewesen { get; private set; } = 0;
 
         public static void ZeigeAnzahlAllerLebewesen()
@@ -83,7 +90,9 @@
             Console.WriteLine($"Es haben bist jetzt {AnzahlAllerLebewesen} Lebewesen existiert.");
         }
 
+        #endregion
 
+        //Mittels OVERRIDE können Methoden der Mutterklassen, welche mit VIRTUAL markiert sind, überschrieben werden. Bei Aufruf wird die neue Methode ausgeführt.
         public override string ToString()
         {
             return $"{this.Name} ist {this.Alter} Jahre alt, {this.Größe} cm groß und mag gerne {this.Lieblingsnahrung}.";

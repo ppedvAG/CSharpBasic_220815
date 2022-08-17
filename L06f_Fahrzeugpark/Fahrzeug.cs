@@ -21,8 +21,8 @@
             this.MotorLäuft = false;
         }
 
-        //Methode zur Ausgabe von Objektinformationen
-        public string Info()
+        //Methode zur Ausgabe von Objektinformationen | virtual erlaubt das Überschreiben durch erbende Klassen
+        public virtual string Info()
         {
             if (this.MotorLäuft)
                 return $"{this.Name} kostet {this.Preis}€ und fährt momentan mit {this.AktGeschwindigkeit} von maximal {this.MaxGeschwindigkeit}km/h.";
@@ -70,6 +70,25 @@
 
                 Console.WriteLine($"{this.Name} bewegt sich jetzt mit {this.AktGeschwindigkeit}km/h");
             }
+        }
+
+        #endregion
+
+        #region Lab 07: Statische Member, Destruktor
+        //Der optionale DESTRUCTOR wird von der GaebageCollection bei Zerstörung (Speicherferigabe) des Objekts aufgerufen.
+        ~Fahrzeug()
+        {
+            Console.WriteLine($"{this.Name} wurde zerstört.");
+        }
+
+
+        //STATIC markiert statische Member. D.h. diese gelten für die Gesamtheit aller Objekte dieser Art und werden nicht für
+        //jedes Objekt einzeln erstellt.
+        public static int AnzahlAllerFahrzeuge { get; private set; } = 0;
+
+        public static string ZeigeAnzahlAllerFahrzeuge()
+        {
+            return $"Es haben bist jetzt {AnzahlAllerFahrzeuge} Lebewesen existiert.";
         }
 
         #endregion
