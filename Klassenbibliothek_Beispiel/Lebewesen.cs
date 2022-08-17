@@ -50,10 +50,10 @@
 
         //Es können mehrere Konstruktoren definiert werden, welche unterschiedliche Übergabeparameter haben (Überladung). Ein Konstruktor, der keine
         //Übergabeparameter hat, wird als Basiskonstruktor bezeichnet
-        public Lebewesen()
-        {
-            AnzahlAllerLebewesen++;
-        }
+        //public Lebewesen()
+        //{
+        //    AnzahlAllerLebewesen++;
+        //}
         #endregion
 
         #region Methoden
@@ -64,7 +64,7 @@
             this.Größe++;
         }
 
-        public Lebewesen GebäreKind(string kindname)
+        public virtual Lebewesen GebäreKind(string kindname)
         {
             return new Lebewesen(kindname, "Muttermilch", DateTime.Now, 30);
         }
@@ -81,6 +81,12 @@
         public static void ZeigeAnzahlAllerLebewesen()
         {
             Console.WriteLine($"Es haben bist jetzt {AnzahlAllerLebewesen} Lebewesen existiert.");
+        }
+
+
+        public override string ToString()
+        {
+            return $"{this.Name} ist {this.Alter} Jahre alt, {this.Größe} cm groß und mag gerne {this.Lieblingsnahrung}.";
         }
     }
 }

@@ -54,20 +54,35 @@ namespace TesteBibliothek
             //Console.WriteLine(fz1.Info() + "\n");
             #endregion
 
-            Lebewesen lebewesen;
+            //Lebewesen lebewesen;
 
-            for (int i = 0; i < 10; i++)
-            {
-                lebewesen = new Lebewesen();
-                lebewesen.Name = $"LW{i}";
-            }
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    lebewesen = new Lebewesen();
+            //    lebewesen.Name = $"LW{i}";
+            //}
 
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
+            //GC.Collect();
+            //GC.WaitForPendingFinalizers();
 
-            Console.WriteLine(Lebewesen.AnzahlAllerLebewesen);
-            Lebewesen.ZeigeAnzahlAllerLebewesen();
+            //Console.WriteLine(Lebewesen.AnzahlAllerLebewesen);
+            //Lebewesen.ZeigeAnzahlAllerLebewesen();
 
+            Lebewesen lebewesen1 = new Lebewesen("Bello", "Fleisch", new DateTime(2020, 12, 3), 60);
+
+            Mensch mensch1 = new Mensch("Anna", "Nass", "Lasagne", new DateTime(2002, 2, 13), 180);
+            Mensch mensch2 = new Mensch("Rainer", "Zufall", "Spagetti", new DateTime(2003, 4, 12), 178, mensch1);
+
+            Console.WriteLine(mensch2.Alter);
+            Console.WriteLine(mensch2.Name);
+
+            Console.WriteLine(mensch2.Vorname);
+            Console.WriteLine(mensch2.Chef.Vorname);
+
+            mensch2.GebäreKind("Maria");
+
+            Console.WriteLine(mensch2);
+            Console.WriteLine(lebewesen1);
         }
     }
 }
