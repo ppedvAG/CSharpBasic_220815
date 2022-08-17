@@ -113,7 +113,7 @@
                 case 2:
                     return new Schiff("Titanic" + nameSuffix, 40, 25000000, Schiff.SchiffsTreibstoff.Dampf);
                 default:
-                    return new Flugzeug("Boing" + nameSuffix, 350, 90000000, 9800);
+                    return new Flugzeug("Boeing" + nameSuffix, 350, 90000000, 9800);
             }
         }
 

@@ -56,7 +56,7 @@ namespace Klassenbibliothek_Beispiel
         //Ducrh IArbeit verlangte Methode
         public void Auszahlung()
         {
-            Console.WriteLine($"{this.Vorname} {this.Nachname} hat {this.Gehalt}€ für {this.Job} bekommen.");
+            Console.WriteLine($"{this.Vorname} {this.Name} hat {this.Gehalt}€ für {this.Job} bekommen.");
         }
 
         //Durch IClonable verlangte Methode (Bsp für .NET-eigenes Interface)

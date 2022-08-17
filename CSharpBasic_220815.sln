@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "M06f_Klassenbibliothek_Beis
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "M07_WerteVSReferenzen", "M07_WerteVSReferenzen\M07_WerteVSReferenzen.csproj", "{E43910AB-3BC9-4F55-848B-DDCCE7B9F2EE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "M06f_TesteFahrzeugpark", "ML06f_TesteFahrzeugpark\M06f_TesteFahrzeugpark.csproj", "{E150B449-C558-40CC-A260-BBF87CEDFE07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ML06f_TesteFahrzeugpark", "ML06f_TesteFahrzeugpark\ML06f_TesteFahrzeugpark.csproj", "{E150B449-C558-40CC-A260-BBF87CEDFE07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

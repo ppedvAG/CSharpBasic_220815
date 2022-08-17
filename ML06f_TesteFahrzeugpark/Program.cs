@@ -129,7 +129,7 @@ namespace TesteBibliothek
             ////Instanziierung verschiedener Fahrzeuge
             //PKW pkw1 = new PKW("Mercedes", 210, 23000, 5);
             //Schiff schiff1 = new Schiff("Titanic", 40, 25000000, Schiff.SchiffsTreibstoff.Dampf);
-            //Flugzeug flugzeug1 = new Flugzeug("Boing", 350, 90000000, 9800);
+            //Flugzeug flugzeug1 = new Flugzeug("Boeing", 350, 90000000, 9800);
 
             ////Ausgabe der verschiedenen Info()-Methoden
             //Console.WriteLine(pkw1.Info());
@@ -214,30 +214,53 @@ namespace TesteBibliothek
 
             #region Modul 10: Interfaces
 
-            //Instanziierung eines Beispiel-Objekts
-            Mensch mensch = new Mensch("Anna", "Meier", "Lasagne", new DateTime(1984, 5, 6),189);
-            //Betrachtung des Objekts als Objekt des Interfaces
-            IArbeitend arbeitendesObjekt = mensch;
-            //Zugriff auf Interface-Methode
-            arbeitendesObjekt.Auszahlung();
-            //Übergabe an Methode, welche ein Objekt des Interfaces erwartet
-            Gehaltserhöhung(arbeitendesObjekt);
-            //Übergabe benötigt keinen Cast aus implementierender Klasse
-            Gehaltserhöhung(mensch);
+            ////Instanziierung eines Beispiel-Objekts
+            //Mensch mensch = new Mensch("Anna", "Meier", "Lasagne", new DateTime(1984, 5, 6),189);
+            ////Betrachtung des Objekts als Objekt des Interfaces
+            //IArbeitend arbeitendesObjekt = mensch;
+            ////Zugriff auf Interface-Methode
+            //arbeitendesObjekt.Auszahlung();
+            ////Übergabe an Methode, welche ein Objekt des Interfaces erwartet
+            //Gehaltserhöhung(arbeitendesObjekt);
+            ////Übergabe benötigt keinen Cast aus implementierender Klasse
+            //Gehaltserhöhung(mensch);
 
-            //Aufruf der Clone()-Funktion des IClonable-Interfaces
-            Mensch kopierterMensch = (Mensch)mensch.Clone();
+            ////Aufruf der Clone()-Funktion des IClonable-Interfaces
+            //Mensch kopierterMensch = (Mensch)mensch.Clone();
+            #endregion
+
+            #region Lab 10: IBeladbar
+
+            //Instanziierung von Bsp-Objekten
+            PKW pkw1 = new PKW("BMW", 250, 23000, 5);
+            Flugzeug flugzeug1 = new Flugzeug("Boeing", 750, 3000000, 9990);
+            Schiff schiff1 = new Schiff("Titanic", 40, 3500000, Schiff.SchiffsTreibstoff.Dampf);
+
+            //Aufruf der Belade()-Funktion mit verschiedenen Fahrzeugen
+            BeladeFahrzeuge(pkw1, flugzeug1);
+            BeladeFahrzeuge(flugzeug1, schiff1);
+            BeladeFahrzeuge(schiff1, pkw1);
+
+            //Ausgabe der Info() des Schiffes
+            Console.WriteLine("\n" + schiff1.Info());
+
+            //Aufruf der Entlade()-Methode
+            Fahrzeug fz = schiff1.Entlade();
+            Console.WriteLine(fz);
+
             #endregion
         }
 
+        #region Modul 09: Polymorphismus (Methode)
         //Methode, welche ein Lebewesen erwartet (kann auch spezielles Lebewesen, z.B. Mensch, sein, da
-        //jeder Mensch auch ein Lebewesen ist)[Modul 09]
+        //jeder Mensch auch ein Lebewesen ist)
         public static void BenenneUm(Lebewesen lw, string neuerName)
         {
             lw.Name = neuerName;
         }
+        #endregion
 
-        #region Modul 10: Interfaces
+        #region Modul 10: Interfaces (Methode)
         //Bsp-Methode, welche ein Objekt vom Typ des Interfaces verlangt
         public static void Gehaltserhöhung(IArbeitend arbeitendesObjekt)
         {
@@ -250,6 +273,30 @@ namespace TesteBibliothek
                 Mensch mensch = (Mensch)arbeitendesObjekt;
                 mensch.GeräuscheProduzieren();
             }
+        }
+        #endregion
+
+        #region Lab 10: IBeladbar (Methode)
+        public static void BeladeFahrzeuge(Fahrzeug fz1, Fahrzeug fz2)
+        {
+            //Test, ob fz1 beladbar ist
+            if (fz1 is IBeladbar)
+            {
+                IBeladbar beladbaresObjekt = (IBeladbar)fz1;
+                beladbaresObjekt.Belade(fz2);
+
+                //Cast des Fahrzeuges in IBeladbar und Ausführung der Belade()-Methode
+                //((IBeladbar)fz1).Belade(fz2);
+            }
+            //Test, ob fz2 beladbar ist
+            else if (fz2 is IBeladbar)
+            {
+                //Cast des Fahrzeuges in IBeladbar mittels AS und Ausführung der Belade()-Methode
+                (fz2 as IBeladbar).Belade(fz1);
+            }
+            //Fehlermeldung
+            else
+                Console.WriteLine("Keines der Fahrzeuge kann ein Fahrzeug transportieren.");
         }
         #endregion
     }
