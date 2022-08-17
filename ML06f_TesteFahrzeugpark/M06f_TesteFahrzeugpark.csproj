@@ -8,7 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Klassenbibliothek_Beispiel\M06f_Klassenbibliothek_Beispiel.csproj" />
+    <ProjectReference Include="..\L06f_Fahrzeugpark\L06f_Fahrzeugpark.csproj" />
+    <ProjectReference Include="..\M06f_Klassenbibliothek_Beispiel\M06f_Klassenbibliothek_Beispiel.csproj" />
   </ItemGroup>
 
 </Project>

@@ -180,36 +180,53 @@ namespace TesteBibliothek
 
             #region Lab 09: Zufällige Fahrzeuge in einem Array zählen
 
-            //Arraydeklarierung
-            Fahrzeug[] fahrzeuge = new Fahrzeug[10];
+            ////Arraydeklarierung
+            //Fahrzeug[] fahrzeuge = new Fahrzeug[10];
 
-            //Schleife über das Array zur Befüllung
-            for (int i = 0; i < fahrzeuge.Length; i++)
-            {
-                //Aufruf der Zufallsmethode aus der Fahrzeug-Klasse
-                fahrzeuge[i] = Fahrzeug.GeneriereFahrzeug($"_{i}");
-            }
+            ////Schleife über das Array zur Befüllung
+            //for (int i = 0; i < fahrzeuge.Length; i++)
+            //{
+            //    //Aufruf der Zufallsmethode aus der Fahrzeug-Klasse
+            //    fahrzeuge[i] = Fahrzeug.GeneriereFahrzeug($"_{i}");
+            //}
 
-            //Deklarierung/Initialisierung der Zählvariablen
-            int pkws = 0, schiffe = 0, flugzeuge = 0;
+            ////Deklarierung/Initialisierung der Zählvariablen
+            //int pkws = 0, schiffe = 0, flugzeuge = 0;
 
-            //Schleife über das Array zur Identifizierung der Objekttypen
-            foreach (var item in fahrzeuge)
-            {
-                //Ausgabe der ToString()-Methoden
-                Console.WriteLine(item as Fahrzeug);
-                //Prüfung des Objektstyps und Hochzählen der entsprechenden Variablen
-                if (item == null) Console.WriteLine("Kein Objekt vorhanden");
-                else if (item is PKW) pkws++;
-                else if (item is Schiff) schiffe++;
-                else flugzeuge++;
-            }
+            ////Schleife über das Array zur Identifizierung der Objekttypen
+            //foreach (var item in fahrzeuge)
+            //{
+            //    //Ausgabe der ToString()-Methoden
+            //    Console.WriteLine(item as Fahrzeug);
+            //    //Prüfung des Objektstyps und Hochzählen der entsprechenden Variablen
+            //    if (item == null) Console.WriteLine("Kein Objekt vorhanden");
+            //    else if (item is PKW) pkws++;
+            //    else if (item is Schiff) schiffe++;
+            //    else flugzeuge++;
+            //}
 
-            //Ausgabe
-            Console.WriteLine($"Es wurden {pkws} PKW(s), {flugzeuge} Flugzeug(e) und {schiffe} Schiff(e) produziert.");
-            //Ausführung der abstrakten Methode
-            fahrzeuge[2].Hupen();
+            ////Ausgabe
+            //Console.WriteLine($"Es wurden {pkws} PKW(s), {flugzeuge} Flugzeug(e) und {schiffe} Schiff(e) produziert.");
+            ////Ausführung der abstrakten Methode
+            //fahrzeuge[2].Hupen();
 
+            #endregion
+
+            #region Modul 10: Interfaces
+
+            //Instanziierung eines Beispiel-Objekts
+            Mensch mensch = new Mensch("Anna", "Meier", "Lasagne", new DateTime(1984, 5, 6),189);
+            //Betrachtung des Objekts als Objekt des Interfaces
+            IArbeitend arbeitendesObjekt = mensch;
+            //Zugriff auf Interface-Methode
+            arbeitendesObjekt.Auszahlung();
+            //Übergabe an Methode, welche ein Objekt des Interfaces erwartet
+            Gehaltserhöhung(arbeitendesObjekt);
+            //Übergabe benötigt keinen Cast aus implementierender Klasse
+            Gehaltserhöhung(mensch);
+
+            //Aufruf der Clone()-Funktion des IClonable-Interfaces
+            Mensch kopierterMensch = (Mensch)mensch.Clone();
             #endregion
         }
 
@@ -219,5 +236,21 @@ namespace TesteBibliothek
         {
             lw.Name = neuerName;
         }
+
+        #region Modul 10: Interfaces
+        //Bsp-Methode, welche ein Objekt vom Typ des Interfaces verlangt
+        public static void Gehaltserhöhung(IArbeitend arbeitendesObjekt)
+        {
+            arbeitendesObjekt.Gehalt += 100;
+
+            //Prüfung des Objekts auf Laufzeittyp
+            if (arbeitendesObjekt is Mensch)
+            {
+                //Cast
+                Mensch mensch = (Mensch)arbeitendesObjekt;
+                mensch.GeräuscheProduzieren();
+            }
+        }
+        #endregion
     }
 }

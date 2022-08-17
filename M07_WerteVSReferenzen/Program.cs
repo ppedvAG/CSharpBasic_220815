@@ -19,8 +19,8 @@ namespace WerteVSReferenzen
             Console.WriteLine($"a: {a} b:{b}");
 
             //Referenztypen
-            Lebewesen lw1 = new Lebewesen() { Name = "Hugo" };
-            Lebewesen lw2 = lw1;
+            Mensch lw1 = new Mensch() { Name = "Hugo" };
+            Mensch lw2 = lw1;
 
             Console.WriteLine($"lw1: {lw1.Name} lw2:{lw2.Name}");
 
