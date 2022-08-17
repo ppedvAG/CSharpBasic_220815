@@ -137,35 +137,84 @@ namespace TesteBibliothek
             //Console.WriteLine(flugzeug1.Info());
             #endregion
 
-            Lebewesen lebewesen;
-            Mensch mensch = new Mensch("Rainer", "Zufall", "Spagetti", new DateTime(2002, 3, 4), 189);
+            #region Modul 09: Polymorphismus
 
-            lebewesen = mensch;
+            ////Deklaration einer Bsp-Variablen
+            //Lebewesen lebewesen;
+            ////Instanziierung eines Objekts der abgeleiteten Klasse
+            //Mensch mensch = new Mensch("Anna", "Meier", "Lasagne", new DateTime(1984, 5, 6), 189);
 
-            if(lebewesen.GetType() == typeof(Mensch))
-                Console.WriteLine("Lebewesen ist ein Mensch");
+            ////Zuweisung des abgeleiteten Objekts zu Variable der Mutterklasse
+            //lebewesen = mensch;
 
-            if(lebewesen is Mensch)
-                Console.WriteLine("Lebewesen ist ein Mensch");
+            ////Tests des Laufzeittyps (des beinhalteten Objekts)
+            //if (lebewesen.GetType() == typeof(Mensch))
+            //    Console.WriteLine("Lebewesen ist ein Mensch");
 
-            Console.WriteLine(lebewesen);
+            //if (lebewesen is Mensch)
+            //    Console.WriteLine("Lebewesen ist ein Mensch");
 
-            if(lebewesen is Mensch)
+            ////überschriebene Methoden werden trotzdem ausgeführt
+            //Console.WriteLine(lebewesen.ToString());
+
+            //if (lebewesen is Mensch)
+            //{
+            //    //Rückcast des abgeleiteten Objekts aus Mutterklassevariablen in abgeleitete Variable
+            //    Mensch mensch2 = (Mensch)lebewesen;
+            //    //Ausgabe von Mensch-spezifischer Eigenschaft
+            //    Console.WriteLine(mensch2.Vorname);
+
+            //    //Alternativer Cast
+            //    mensch2 = lebewesen as Mensch;
+            //    Console.WriteLine((lebewesen as Mensch).Vorname);
+            //}
+
+            ////Übergabe von Mensch an Funktion, die eine allgemeines Lebewesen erwartet
+            //BenenneUm(mensch, "Karl");
+
+            ////Aufruf einer abstraktem Methode
+            //lebewesen.GeräuscheProduzieren();
+
+
+            #endregion
+
+            #region Lab 09: Zufällige Fahrzeuge in einem Array zählen
+
+            //Arraydeklarierung
+            Fahrzeug[] fahrzeuge = new Fahrzeug[10];
+
+            //Schleife über das Array zur Befüllung
+            for (int i = 0; i < fahrzeuge.Length; i++)
             {
-                Mensch mensch2;
-                mensch2 = (Mensch)lebewesen;
-                Console.WriteLine(mensch2.Vorname);
-
-                mensch2 = lebewesen as Mensch;
-
-                Console.WriteLine((lebewesen as Mensch).Vorname);
+                //Aufruf der Zufallsmethode aus der Fahrzeug-Klasse
+                fahrzeuge[i] = Fahrzeug.GeneriereFahrzeug($"_{i}");
             }
 
-            BenenneUm(mensch, "Karl");
+            //Deklarierung/Initialisierung der Zählvariablen
+            int pkws = 0, schiffe = 0, flugzeuge = 0;
 
-            lebewesen.GeräuscheProduzieren();
+            //Schleife über das Array zur Identifizierung der Objekttypen
+            foreach (var item in fahrzeuge)
+            {
+                //Ausgabe der ToString()-Methoden
+                Console.WriteLine(item as Fahrzeug);
+                //Prüfung des Objektstyps und Hochzählen der entsprechenden Variablen
+                if (item == null) Console.WriteLine("Kein Objekt vorhanden");
+                else if (item is PKW) pkws++;
+                else if (item is Schiff) schiffe++;
+                else flugzeuge++;
+            }
+
+            //Ausgabe
+            Console.WriteLine($"Es wurden {pkws} PKW(s), {flugzeuge} Flugzeug(e) und {schiffe} Schiff(e) produziert.");
+            //Ausführung der abstrakten Methode
+            fahrzeuge[2].Hupen();
+
+            #endregion
         }
 
+        //Methode, welche ein Lebewesen erwartet (kann auch spezielles Lebewesen, z.B. Mensch, sein, da
+        //jeder Mensch auch ein Lebewesen ist)[Modul 09]
         public static void BenenneUm(Lebewesen lw, string neuerName)
         {
             lw.Name = neuerName;

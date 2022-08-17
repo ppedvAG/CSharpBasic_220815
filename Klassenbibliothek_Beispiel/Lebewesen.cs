@@ -1,6 +1,7 @@
 ﻿namespace Klassenbibliothek_Beispiel
 {
     //KLASSEN sind Vorlagen für Objekte. Sie bestimmen Eigenschaften und Funktionen dieser.
+    //ABSTRACT definiert eine Klasse als abstrakt. D.h. von dieser Klasse können keine Objekte mehr instanziiert werden, sie dient nur noch als Mutterklasse
     public abstract class Lebewesen
     {
         #region Felder und Eigenschaften
@@ -99,6 +100,8 @@
             return $"{this.Name} ist {this.Alter} Jahre alt, {this.Größe} cm groß und mag gerne {this.Lieblingsnahrung}.";
         }
 
+        //Abstrakte Methoden dürfen nur in abstrakten Klassen existieren und definieren nur
+        ///eine Signatur. Die erbenden Klassen werden gezwungen eine Implementierung vorzunehmen
         public abstract void GeräuscheProduzieren();
     }
 }

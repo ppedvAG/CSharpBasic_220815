@@ -20,5 +20,10 @@ namespace L06f_Fahrzeugpark
         {
             return "Der PKW " + base.Info() + $" Er hat {this.AnzahlTueren} Türen.";
         }
+
+        public override void Hupen()
+        {
+            Console.WriteLine($"{this.Name}: 'Hup Hup'");
+        }
     }
 }

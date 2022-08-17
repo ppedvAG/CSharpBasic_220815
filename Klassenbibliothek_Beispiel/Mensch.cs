@@ -37,6 +37,7 @@ namespace Klassenbibliothek_Beispiel
             return ausgabe;
         }
 
+        //Durch Mutterklasse erzwungene (weil dort abstrakte) Methode
         public override void GeräuscheProduzieren()
         {
             Console.WriteLine("Bla Bla Bla");
