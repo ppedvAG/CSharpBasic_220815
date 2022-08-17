@@ -231,24 +231,54 @@ namespace TesteBibliothek
 
             #region Lab 10: IBeladbar
 
-            //Instanziierung von Bsp-Objekten
-            PKW pkw1 = new PKW("BMW", 250, 23000, 5);
-            Flugzeug flugzeug1 = new Flugzeug("Boeing", 750, 3000000, 9990);
-            Schiff schiff1 = new Schiff("Titanic", 40, 3500000, Schiff.SchiffsTreibstoff.Dampf);
+            ////Instanziierung von Bsp-Objekten
+            //PKW pkw1 = new PKW("BMW", 250, 23000, 5);
+            //Flugzeug flugzeug1 = new Flugzeug("Boeing", 750, 3000000, 9990);
+            //Schiff schiff1 = new Schiff("Titanic", 40, 3500000, Schiff.SchiffsTreibstoff.Dampf);
 
-            //Aufruf der Belade()-Funktion mit verschiedenen Fahrzeugen
-            BeladeFahrzeuge(pkw1, flugzeug1);
-            BeladeFahrzeuge(flugzeug1, schiff1);
-            BeladeFahrzeuge(schiff1, pkw1);
+            ////Aufruf der Belade()-Funktion mit verschiedenen Fahrzeugen
+            //BeladeFahrzeuge(pkw1, flugzeug1);
+            //BeladeFahrzeuge(flugzeug1, schiff1);
+            //BeladeFahrzeuge(schiff1, pkw1);
 
-            //Ausgabe der Info() des Schiffes
-            Console.WriteLine("\n" + schiff1.Info());
+            ////Ausgabe der Info() des Schiffes
+            //Console.WriteLine("\n" + schiff1.Info());
 
-            //Aufruf der Entlade()-Methode
-            Fahrzeug fz = schiff1.Entlade();
-            Console.WriteLine(fz);
+            ////Aufruf der Entlade()-Methode
+            //Fahrzeug fz = schiff1.Entlade();
+            //Console.WriteLine(fz);
 
             #endregion
+
+            List<string> Städteliste = new List<string>();
+
+            Städteliste.Add("Hamburg");
+            Städteliste.Add("Berlin");
+            Städteliste.Add("München");
+            Städteliste.Add("Köln");
+            Städteliste.Add("Düsseldorf");
+
+            Console.WriteLine(Städteliste.Count);
+
+            Console.WriteLine(Städteliste[3]);
+
+            Städteliste[4] = "Dresden";
+
+            foreach (var item in Städteliste)
+            {
+                Console.WriteLine(item);
+            }
+
+            Städteliste.Remove("München");
+
+            Dictionary<string, int> dict = new Dictionary<string, int>();
+            dict.Add("Hallo", 123);
+            dict.Add("Ahoj", 34);
+            dict.Add("Moin", -12);
+            dict.Add("Ciao", 9999);
+
+            Console.WriteLine(dict["Ciao"]);
+            Console.WriteLine(dict["Ahoj"]);
         }
 
         #region Modul 09: Polymorphismus (Methode)
