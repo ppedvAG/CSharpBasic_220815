@@ -250,35 +250,95 @@ namespace TesteBibliothek
 
             #endregion
 
-            List<string> Städteliste = new List<string>();
+            #region Modul 11: Generische Listen
+            ////Deklaration und Initialisierung einer Liste von Strings
+            //System.Collections.Generic.List<string> Städteliste = new List<string>();
 
-            Städteliste.Add("Hamburg");
-            Städteliste.Add("Berlin");
-            Städteliste.Add("München");
-            Städteliste.Add("Köln");
-            Städteliste.Add("Düsseldorf");
+            ////Hinzufügen von Listeneinträgen
+            //Städteliste.Add("Hamburg");
+            //Städteliste.Add("Berlin");
+            //Städteliste.Add("München");
+            //Städteliste.Add("Köln");
+            //Städteliste.Add("Düsseldorf");
 
-            Console.WriteLine(Städteliste.Count);
+            ////Ausgabe der Länge der Liste
+            //Console.WriteLine(Städteliste.Count);
 
-            Console.WriteLine(Städteliste[3]);
+            ////Ausgabe der 4. Listenposition
+            //Console.WriteLine(Städteliste[3]);
 
-            Städteliste[4] = "Dresden";
+            ////Manipulation der 5. Listenposition
+            //Städteliste[4] = "Dresden";
+            //Console.WriteLine(Städteliste[3]);
 
-            foreach (var item in Städteliste)
+            ////Schleife über die Liste
+            //foreach (var item in Städteliste)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            ////Löschen des Eintrags 'Köln' (Nachfolgende Einträge rücken nach oben)
+            //Städteliste.Remove("Köln");
+
+            ////Deklaration und Initialisierung eines Dictionarys (Key: String, Value: Int)
+            //Dictionary<string, int> Dict = new Dictionary<string, int>();
+
+            ////Hinzufügen von Dictionary-Einträgen
+            //Dict.Add("Hallo", 456);
+            //Dict.Add("Ahoj", 5);
+            //Dict.Add("Ciao", -78);
+            //Dict.Add("Moin", 456);
+
+            ////Ausgabe des Eintrags mit Key 'Ciao'
+            //Console.WriteLine(Dict["Ciao"]);
+            #endregion
+
+            #region Lab 11: Fahrzeuge in Listen
+            //Deklaration der benötigten Variablen und und Initialisierung mit Instanzen der benötigten Objekte
+            Queue<Fahrzeug> fzQueue = new Queue<Fahrzeug>();
+            Stack<Fahrzeug> fzStack = new Stack<Fahrzeug>();
+            Dictionary<Fahrzeug, Fahrzeug> fzDict = new Dictionary<Fahrzeug, Fahrzeug>();
+            
+            //Deklaration und Initialisierung einer Variablen zur Bestimmung der Anzahl der Durchläufe 
+            int anzahlFahrzeuge = 10;
+
+            //Schleife zur zufälligen Befüllung von Queue und Stack
+            for (int i = 0; i < anzahlFahrzeuge; i++)
             {
-                Console.WriteLine(item);
+                fzQueue.Enqueue(Fahrzeug.GeneriereFahrzeug($"_Q{i}"));
+                fzStack.Push(Fahrzeug.GeneriereFahrzeug($"_S{i}"));
             }
 
-            Städteliste.Remove("München");
+            for (int i = 0; i < anzahlFahrzeuge; i++)
+            {
+                //Prüfung, ob das Interface vorhanden ist (mittels Peek(), da die Objekte noch benötigt werden)...
+                if (fzQueue.Peek() is IBeladbar)
+                {
+                    //...wenn ja, dann Cast in das Interface und Ausführung der Belade()-Methode (mittels Peek())...
+                    ((IBeladbar)fzQueue.Peek()).Belade(fzStack.Peek());
+                    //...sowie Hinzufügen zum Dictionary (mittels Pop()/Dequeue(), um beim nächsten Durchlauf andere Objekte an den Spitzen zu haben)
+                    fzDict.Add(fzQueue.Dequeue(), fzStack.Pop());
+                }
+                else
+                {
+                    //... wenn nein, dann Löschung der obersten Objekte (mittels Pop()/Dequeue())
+                    fzQueue.Dequeue();
+                    fzStack.Pop();
+                }
+            }
 
-            Dictionary<string, int> dict = new Dictionary<string, int>();
-            dict.Add("Hallo", 123);
-            dict.Add("Ahoj", 34);
-            dict.Add("Moin", -12);
-            dict.Add("Ciao", 9999);
+            //Programmpause
+            Console.ReadKey();
+            Console.WriteLine("\n----------LADELISTE----------");
 
-            Console.WriteLine(dict["Ciao"]);
-            Console.WriteLine(dict["Ahoj"]);
+            //Schleife zur Ausgabe des Dictionaries
+            foreach (var item in fzDict)
+            {
+                Console.WriteLine($"'{item.Key.Name}' hat '{item.Value.Name}' geladen.");
+            }
+
+            #endregion
+
         }
 
         #region Modul 09: Polymorphismus (Methode)
