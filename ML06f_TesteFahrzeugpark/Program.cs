@@ -314,6 +314,11 @@ namespace TesteBibliothek
                 //Prüfung, ob das Interface vorhanden ist (mittels Peek(), da die Objekte noch benötigt werden)...
                 if (fzQueue.Peek() is IBeladbar)
                 {
+                    //Fahrzeug qFz = fzQueue.Peek();
+                    //Fahrzeug sFz = fzStack.Peek();
+                    //IBeladbar qFzAsBeladbar = (IBeladbar)qFz;
+                    //qFzAsBeladbar.Belade(sFz);
+
                     //...wenn ja, dann Cast in das Interface und Ausführung der Belade()-Methode (mittels Peek())...
                     ((IBeladbar)fzQueue.Peek()).Belade(fzStack.Peek());
                     //...sowie Hinzufügen zum Dictionary (mittels Pop()/Dequeue(), um beim nächsten Durchlauf andere Objekte an den Spitzen zu haben)
@@ -332,7 +337,7 @@ namespace TesteBibliothek
             Console.WriteLine("\n----------LADELISTE----------");
 
             //Schleife zur Ausgabe des Dictionaries
-            foreach (var item in fzDict)
+            foreach (KeyValuePair<Fahrzeug, Fahrzeug> item in fzDict)
             {
                 Console.WriteLine($"'{item.Key.Name}' hat '{item.Value.Name}' geladen.");
             }
