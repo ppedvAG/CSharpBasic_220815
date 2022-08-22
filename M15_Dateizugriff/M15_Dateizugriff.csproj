@@ -12,8 +12,4 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\L06f_Fahrzeugpark\L06f_Fahrzeugpark.csproj" />
-  </ItemGroup>
-
 </Project>
